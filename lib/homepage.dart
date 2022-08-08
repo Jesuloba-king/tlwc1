@@ -9,18 +9,15 @@ class SecondPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueAccent,
-      appBar: AppBar(
-        elevation: 0,
-        automaticallyImplyLeading: true,
-        // leading: Icon(CupertinoIcons.text_alignleft, color: Colors.black,),
-      ),
       body: Container(
+        color: Colors.white,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Container(
-                height: 696,
-                width: 400,
+                padding: EdgeInsets.only(top: 90),
                 decoration: BoxDecoration(
                   color: Color(0XFF657B86),
                 ),
@@ -210,8 +207,8 @@ class SecondPage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                    height: 150,
-                                    width: 400,
+                                    height: 140,
+                                    width: MediaQuery.of(context).size.width,
                                     margin: EdgeInsets.all(4),
                                     decoration: BoxDecoration(
                                       color: Colors.white,
@@ -220,46 +217,65 @@ class SecondPage extends StatelessWidget {
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        Image.asset("assets/images/child.png", height: 90, width: 90,
+                                        Image.asset("assets/images/child.png", height: 140, width: 150,
                                         ),
-                                        Container(
-                                          margin: EdgeInsets.all(15),
-                                          child: Text(
-                                            "Orphanage Scholarship \n5 Days left",
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                                color: Color(0XFF828282),
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 13,
-                                                fontStyle: FontStyle.normal,
-                                                fontFamily: "Roboto"
-                                            ), ),
-                                        ),
-                                        Row(
-                                          // mainAxisAlignment: MainAxisAlignment.start,
+                                        Column(
+                                          mainAxisAlignment: MainAxisAlignment.start,
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
-                                            GestureDetector(
-                                              onTap: (){
-                                                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                                  return DonationPage(title: "Donation");
-                                                }));
-                                              },
-                                              child: Container(
-                                                padding: EdgeInsets.all(12),
-                                                margin: EdgeInsets.only(top: 80, right: 20),
-                                                width: 100, height: 45,
-                                                decoration: BoxDecoration(
-                                                  borderRadius: BorderRadius.circular(20),
-                                                  color: Color(0XFFEB763C),
+                                            SizedBox(width: 20,),
+                                            // Padding(padding: EdgeInsets.only(top: 10,)),
+                                            Container(
+                                              // margin: EdgeInsets.all(10),
+                                              child: Text(
+                                                "Orphanage Scholarship",
+                                                style: TextStyle(
+                                                    color: Color(0XFF828282),
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 13,
+                                                    fontStyle: FontStyle.normal,
+                                                    fontFamily: "Roboto"
+                                                ), ),
+                                            ),
+                                            SizedBox(width: 10,),
+                                            Text(
+                                              "5 Days left",
+                                              style: TextStyle(
+                                                  color: Color(0XFF828282),
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 11,
+                                                  fontStyle: FontStyle.normal,
+                                                  fontFamily: "Roboto"
+                                              ), ),
+                                            SizedBox(width: 10,),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              // crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                GestureDetector(
+                                                  onTap: (){
+                                                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                                      return DonationPage(title: "Donation");
+                                                    }));
+                                                  },
+                                                  child: Expanded(
+                                                    child: Container(
+                                                      padding: EdgeInsets.all(12),
+                                                      margin: EdgeInsets.only(top: 10, right: 50),
+                                                      width: 100, height: 45,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(20),
+                                                        color: Color(0XFFEB763C),
+                                                      ),
+                                                      child: Text("Donate",
+                                                        style: TextStyle(fontFamily: "Roboto",
+                                                            color: Colors.white,
+                                                            fontWeight: FontWeight.w700,
+                                                            fontSize: 20, fontStyle: FontStyle.normal),),
+                                                    ),
+                                                  ),
                                                 ),
-                                                child: Text("Donate",
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(fontFamily: "Roboto",
-                                                      color: Colors.white,
-                                                      fontWeight: FontWeight.w700,
-                                                      fontSize: 20, fontStyle: FontStyle.normal),),
-                                              ),
+                                              ],
                                             ),
                                           ],
                                         ),

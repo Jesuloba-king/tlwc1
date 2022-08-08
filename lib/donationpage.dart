@@ -11,34 +11,32 @@ final String title;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
+          color: Color(0XFFF2F2F2),
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
         child: SingleChildScrollView(
           child: Column(
           children: <Widget>[
             Container(
-            height: 770,
-            width: 400,
-            decoration: BoxDecoration(
-            color: Color(0XFFF2F2F2),
-                ),
+              padding: EdgeInsets.only(top: 15),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(padding: EdgeInsets.only(top: 40,)),
+                  Padding(padding: EdgeInsets.only(top: 50, left: 10, right: 10)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                        Container(
-                          padding: EdgeInsets.all(5),
-                          child: Text("TLWC",
+                        Text("TLWC",
                         style: TextStyle(fontStyle: FontStyle.normal,
-                            color: Color(0XFF4F4F4F),
-                            fontSize: 24,
-                            letterSpacing: 1,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "Roboto"),
+                          color: Color(0XFF4F4F4F),
+                          fontSize: 24,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: "Roboto"),
                       ),
-                      ),
+                      Icon(Icons.menu),
                     ],
                   ),
                   Row(
@@ -62,23 +60,13 @@ final String title;
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        padding: EdgeInsets.only(top: 15, left: 20, bottom: 20),
-                        child: TextButton(
+                        padding: EdgeInsets.only(top: 15, left: 10, bottom: 20),
+                        child: TextButton( //click on Donation to go back to previous page....
                           onPressed: (){ Navigator.pop(context, "Returned from Donation Page");},
                           child: const Text("Donation", style: TextStyle(fontSize: 23,
                               color: Colors.black,
                               fontWeight: FontWeight.normal),),
-                          //Click on Donation to go back to the previous page..
                         ),
-                        // Text("Donation",
-                        //   textAlign: TextAlign.start,
-                        //   style: TextStyle(fontStyle: FontStyle.normal,
-                        //       color: Color(0XFF4F4F4F),
-                        //       fontSize: 23,
-                        //       letterSpacing: 1,
-                        //       fontWeight: FontWeight.w500,
-                        //       fontFamily: "Roboto"),
-                        // ),
                       ),
                     ],
                   ),
@@ -118,56 +106,73 @@ final String title;
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        height: 150,
-                        width: 400,
+                        height: 140,
+                        width: MediaQuery.of(context).size.width,
                         margin: EdgeInsets.all(4),
                         decoration: BoxDecoration(
-                          color: Colors.transparent,
+                          color: Colors.white,
                           borderRadius:(BorderRadius.circular(20)),
                         ),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Image.asset("assets/images/child.png", height: 90, width: 90,
+                            Image.asset("assets/images/child.png", height: 140, width: 150,
                             ),
-                            Container(
-                              margin: EdgeInsets.all(15),
-                              child: Text(
-                                "Orphanage Scholarship \n5 Days left",
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 13,
-                                    fontStyle: FontStyle.normal,
-                                    fontFamily: "Roboto"
-                                ), ),
-                            ),
-                            Row(
+                            Column(
                               mainAxisAlignment: MainAxisAlignment.start,
-                              // crossAxisAlignment: CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                GestureDetector( //click on Donate to open the Donation Page
-                                  onTap: (){
-                                    Navigator.push(context, MaterialPageRoute(builder: ( context) {
-                                      return DonationOpenPage(title: "Donation");
-                                    }));
-                                  },
-                                  child: Container(
-                                    padding: EdgeInsets.all(12),
-                                    margin: EdgeInsets.only(top: 80, right: 20),
-                                    width: 100, height: 45,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color: Color(0XFFEB763C),
+                                SizedBox(height: 10,),
+                                Container(
+                                  child: Text(
+                                    "Orphanage Scholarship",
+                                    style: TextStyle(
+                                        color: Color(0XFF828282),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 13,
+                                        fontStyle: FontStyle.normal,
+                                        fontFamily: "Roboto"
+                                    ), ),
+                                ),
+                                SizedBox(height: 10,),
+                                Text(
+                                  "5 Days left",
+                                  style: TextStyle(
+                                      color: Color(0XFF828282),
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 11,
+                                      fontStyle: FontStyle.normal,
+                                      fontFamily: "Roboto"
+                                  ), ),
+                                SizedBox(height: 10,),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  // crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    GestureDetector(
+                                      onTap: (){
+                                        Navigator.push(context, MaterialPageRoute(builder: ( context) {
+                                          return DonationOpenPage(title: "Donation");
+                                        }));
+                                      },
+                                      child: Expanded(
+                                        child: Container(
+                                          padding: EdgeInsets.all(12),
+                                          margin: EdgeInsets.only(top: 10, right: 50),
+                                          width: 100, height: 45,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(20),
+                                            color: Color(0XFFEB763C),
+                                          ),
+                                          child: Text("Donate",
+                                            style: TextStyle(fontFamily: "Roboto",
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w700,
+                                                fontSize: 20, fontStyle: FontStyle.normal),),
+                                        ),
+                                      ),
                                     ),
-                                    child: Text("Donate",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontFamily: "Roboto",
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 20, fontStyle: FontStyle.normal),),
-                                  ),
+                                  ],
                                 ),
                               ],
                             ),

@@ -35,13 +35,15 @@ class DonationOpenPage extends StatelessWidget {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Icon(Icons.arrow_back_sharp, color: Colors.white,),
+                                  IconButton(onPressed: (){ Navigator.pop(context, "Returned from final Page");},
+                                      icon: Icon(Icons.arrow_back_sharp, color: Colors.white,),
+                                  ),
                                   Icon(Icons.share, color: Colors.white,),
                                 ],
                               ),
                               Column(
                                 children: [
-                                  Padding(padding: EdgeInsets.only(top: 60,)),
+                                  Padding(padding: EdgeInsets.only(top: 50,)),
                                   Container(
                                     margin: EdgeInsets.only(right: 300),
                                     child: Text("Details",
