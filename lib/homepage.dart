@@ -99,9 +99,8 @@ class SecondPage extends StatelessWidget {
                       ],
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Padding(padding: EdgeInsets.all(10)),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [

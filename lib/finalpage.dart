@@ -24,10 +24,39 @@ class DonationOpenPage extends StatelessWidget {
                         Container(
                           height: 490,
                           width: 400,
-                          decoration: BoxDecoration(gradient: LinearGradient(
-                            begin: Alignment.center, end: Alignment.bottomLeft, colors: [Colors.tealAccent, Colors.purple]
-                          )),
-                          child: Image.asset("assets/images/child.png", fit: BoxFit.cover,),
+                          decoration: BoxDecoration(
+                            image: DecorationImage(image: AssetImage("assets/images/child.png",), fit: BoxFit.cover),
+                            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30),)
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(padding: EdgeInsets.all(30)),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Icon(Icons.arrow_back_sharp, color: Colors.white,),
+                                  Icon(Icons.share, color: Colors.white,),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Padding(padding: EdgeInsets.only(top: 60,)),
+                                  Container(
+                                    margin: EdgeInsets.only(right: 300),
+                                    child: Text("Details",
+                                      style: TextStyle(fontStyle: FontStyle.normal,
+                                          color: Colors.white,
+                                          fontSize: 23,
+                                          letterSpacing: 0.1,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: "Roboto"),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
